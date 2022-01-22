@@ -1,36 +1,22 @@
-<!DOCTYPE html>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+---
+layout: default
+---
 
-{% include head.html %}
+    <article id="main">
+  <header class="special container">
+    <h2 class="post-title">{{ page.title }}</h2>
+    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  </header>
 
-<body>
-
-    {% include header.html %} 
+  <section class="style4 wrapper container">
+    {{ content }}
+  </section>
     
-    
-<!-- Main -->
-<div id="main" class="alt">
+    <footer>
+        {% if page.previous %}
+        <a href="{{ page.previous.url }}" class="post-prev">&larr; Previous post</a> {% endif %}
+        {% if page.next %}
+        <a href="{{ page.next.url }}" class="post-next">Next post &rarr;</a> {% endif %}
+    </footer>
+</article>
 
-<!-- One -->
-<section id="one">
-	<div class="inner">
-		<header class="major">
-			<h1>{{ page.title }}</h1>
-		</header>
-		{% if page.image %}<span class="image main"><img src="{{ site.baseurl }}/{{ page.image }}" alt="" /></span>{% endif %}
-		{{ content }}
-	</div>
-</section>
-
-</div>
-
-    {% include footer.html %}
-
-</body>
-
-</html>
